@@ -1,0 +1,58 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env", 
+            { 
+                // 我们设置 "modules": false，否则 Babel 会在 Rollup 有机会做处理之前，将我们的模块转成 CommonJS，导致 Rollup 的一些处理失败。
+                "modules": false,
+                "targets": { 
+                    "browsers": ["> 1%", "last 2 versions", "not ie <= 8"],
+                    "node": "current" 
+                } 
+            }
+        ]
+    ],
+    "plugins": [
+        "syntax-dynamic-import",
+        ["@vue/babel-plugin-jsx"],
+        // 解决多个地方使用相同代码导致打包重复的问题
+        // ["@babel/plugin-transform-runtime"]
+    ],
+    "env": {
+        "utils": {
+            "presets": [
+                [
+                    "env",
+                    {
+                        "loose": true,
+                        "modules": "commonjs",
+                        "targets": {
+                            "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+                        }
+                    }
+                ]
+            ],
+            "plugins": [
+                ["module-resolver", {
+                    //   "root": ["./"],
+                    "root": ["pl-ui"],
+                    "alias": {
+                        // "pl-ui/src": "pl-ui/lib"
+                    }
+                }]
+            ]
+        },
+        "test": {
+            "plugins": ["istanbul"],
+            "presets": [
+                [
+                    "env", 
+                    { "targets": { "node": "current" } }
+                ]
+            ]
+        },
+        "esm": {
+            "presets": [["@babel/preset-env", { "modules": false }]]
+        }
+    }
+}
