@@ -15,7 +15,7 @@ module.exports = {
         'plugin:json/recommended',
         'plugin:vue/vue3-essential',
         'eslint:recommended',
-    // '@vue/prettier',
+        // '@vue/prettier',
     ],
     parserOptions: {
         parser: 'babel-eslint',
@@ -29,6 +29,10 @@ module.exports = {
         'vue/html-indent': ['error', 4],
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    // 'prettier/prettier': 'error'
+        'no-useless-catch': 0,
+        'no-prototype-builtins': 0,
+        'vue/no-deprecated-destroyed-lifecycle': 0,
+        'vue/no-mutating-props': 0
+        // 'prettier/prettier': 'error'
     },
 }

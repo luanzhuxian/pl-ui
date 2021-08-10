@@ -21,7 +21,7 @@ const createBanner = () => {
     return `
        /*!
         * ${pkg.name} v${pkg.version}
-        * (c) ${new Date().getFullYear()} kkb
+        * (c) ${new Date().getFullYear()} lzx
         * @license MIT
         */
     `
@@ -34,12 +34,11 @@ const createBaseConfig = () => {
         external: ['vue'],
         plugins: [
             // vuePlugin 必须放在 commonjs 前，否则会报错
-            vuePlugin(),
-            // vuePlugin({
-            //     css: true
-            //     // TODO:
-            //     // compileTemplate: true
-            // }),
+            vuePlugin({
+                css: true
+                // TODO:
+                // compileTemplate: true
+            }),
             peerDepsExternal(),
             // TODO:
             // babel(),

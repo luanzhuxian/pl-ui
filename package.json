@@ -25,7 +25,9 @@
     "vue",
     "components"
   ],
-  "peerDependencies": {},
+  "peerDependencies": {
+    "vue": "^2.6.14"
+  },
   "dependencies": {
     "vue": "^2.6.14"
   },

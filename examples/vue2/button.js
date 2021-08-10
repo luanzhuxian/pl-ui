@@ -1,9 +1,9 @@
 const App = {
-    // template: `
-    //         <pl-button icon="el-icon-search" type="warning" @click="click">
-    //             {{ message }}
-    //         </pl-button>
-    // `,
+    template: `
+        <pl-button icon="el-icon-search" type="warning" @click="click">
+            {{ message }}
+        </pl-button>
+    `,
     data () {
         return {
             message: 'Hello Vue 3!!'
@@ -18,21 +18,21 @@ const App = {
         click () {
             this.message = this.message.split('').reverse().join('')
         }
-    },
-    render (h) {
-        return h(
-            'pl-button', 
-            {
-                props: {
-                    type: 'primary'
-                },
-                on: {
-                    click: this.click
-                }
-            },
-            this.message
-        )
     }
+    // render (h) {
+    //     return h(
+    //         'pl-button', 
+    //         {
+    //             props: {
+    //                 type: 'primary'
+    //             },
+    //             on: {
+    //                 click: this.click
+    //             }
+    //         },
+    //         this.message
+    //     )
+    // }
 }
 
 const { ElButton } = PenglaiUI
