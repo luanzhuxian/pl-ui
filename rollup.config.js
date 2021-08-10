@@ -1,7 +1,8 @@
 import pkg from './package.json'
 
 // TODO: 为什么打包出来的组件库是 vue3 形式的 ？？？
-import vuePlugin from 'rollup-plugin-vue'
+// import vuePlugin from 'rollup-plugin-vue'
+import vuePlugin from 'rollup-plugin-vue2'
 // const vuePlugin = require("./lib/rollup-plugin-vue/index")
 
 import resolve from '@rollup/plugin-node-resolve'
@@ -32,18 +33,19 @@ const createBaseConfig = () => {
         // 指出应将哪些模块视为外部模块，不打入包内
         external: ['vue'],
         plugins: [
+            // vuePlugin 必须放在 commonjs 前，否则会报错
+            vuePlugin(),
+            // vuePlugin({
+            //     css: true
+            //     // TODO:
+            //     // compileTemplate: true
+            // }),
             peerDepsExternal(),
             // TODO:
             // babel(),
             babel({
                 exclude: '**/node_modules/**',
                 // runtimeHelpers: true,       // 使 plugin-transform-runtime 生效
-            }),
-            // vuePlugin 必须放在 commonjs 前，否则会报错
-            vuePlugin({
-                css: true
-                // TODO:
-                // compileTemplate: true
             }),
             resolve({
                 extensions: ['.vue', '.jsx'],
