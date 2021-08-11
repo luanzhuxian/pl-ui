@@ -2,6 +2,7 @@ import Vue from 'vue'
 import IndicatorComponent from './Indicator.vue'
 
 const IndicatorConstructor = Vue.extend(IndicatorComponent)
+
 const instance = new IndicatorConstructor({
     el: document.createElement('div')
 })

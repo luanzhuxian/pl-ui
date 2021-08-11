@@ -1,4 +1,3 @@
-/* eslint-disable */
 import Vue from 'vue'
 import MessageBox from './Message-Box.vue'
 

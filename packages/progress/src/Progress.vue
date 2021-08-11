@@ -1,21 +1,21 @@
 <template>
-    <div :class="[$style.progress, $style[type]]">
-        <div :class="$style.progressBar" v-if="type === 'bar'">
-            <div :class="$style.progressBarOuter" :style="{ height: strokeWidth / 7.5 + 'vw', backgroundColor: outterColor }">
-                <div :class="$style.progressBarInner" :style="barStyle" />
+    <div class="pl-progress" :class="[type]">
+        <div class="pl-progress-bar" v-if="type === 'bar'">
+            <div class="pl-progress-bar-outer" :style="{ height: strokeWidth / 7.5 + 'vw', backgroundColor: outterColor }">
+                <div class="pl-progress-bar-inner" :style="barStyle" />
             </div>
         </div>
-        <div :class="$style.progressCircle" :style="{ width: width / 7.5 + 'vw', height: width / 7.5 + 'vw' }" v-if="type === 'circle'">
+        <div class="pl-progress-circle" :style="{ width: width / 7.5 + 'vw', height: width / 7.5 + 'vw' }" v-if="type === 'circle'">
             <svg viewBox="0 0 100 100">
                 <path
-                    :class="$style.progressCircleTrack"
+                    class="pl-progress-circle-track"
                     :d="trackPath"
                     :stroke="outterColor"
                     fill="none"
                     :stroke-width="relativeStrokeWidth"
                     :style="trailPathStyle" />
                 <path
-                    :class="$style.progressCirclePath"
+                    class="pl-progress-circle-path"
                     :d="trackPath"
                     :stroke="stroke"
                     fill="none"
@@ -25,7 +25,7 @@
             </svg>
         </div>
         <div
-            :class="$style.progressContent"
+            class="pl-progress-content"
             v-if="showContent"
             :style="{ fontSize: contentTextSize / 7.5 + 'vw' }"
         >
@@ -174,8 +174,8 @@ export default {
 }
 </script>
 
-<style lang="scss" module>
-.progress {
+<style lang="scss">
+.pl-progress {
     position: relative;
     line-height: 1;
     &-bar {
@@ -214,6 +214,7 @@ export default {
         margin-left: 20px;
         line-height: 1;
         font-size: 28px;
+        // color: $--color-text-regular;
     }
 }
 .bar {
@@ -236,7 +237,6 @@ export default {
     0% {
         background-position: 0 0;
     }
-
     100% {
         background-position: 64px 0;
     }

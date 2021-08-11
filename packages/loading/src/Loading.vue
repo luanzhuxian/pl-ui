@@ -13,9 +13,10 @@
             v-show="show"
         >
             <div class="pl-loading-box">
-                <svgicon
-                    name="penglai-ui/loading"
+                <pl-svg
                     class="pl-loading-icon"
+                    name="icon-loading"
+                    size="30"
                     color="#fff"
                 />
                 <div class="pl-loading-message" v-if="message" v-text="message" />
@@ -27,14 +28,14 @@
 <script>
 export default {
     name: 'PlLoading',
-    props: {
-        mask: Boolean
-    },
     data () {
         return {
             show: false,
             message: ''
         }
+    },
+    props: {
+        mask: Boolean
     },
     methods: {
         close () {

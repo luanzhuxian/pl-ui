@@ -1,4 +1,5 @@
 import './assets/scss/var.scss'
+import './assets/scss/transition.scss'
 
 import Button from '../packages/button'
 import Checkbox from '../packages/checkbox'
@@ -77,14 +78,11 @@ const install = function (Vue, opts = {}) {
     }
 
     /* 全局变量 */
-    console.log('Vue.prototype', Vue.prototype)
-
     if (Vue.prototype) {
         Vue.prototype.$PL = {
             size: opts.size || '',
             zIndex: opts.size || 2000,
         }
-        // Vue.prototype.$indicator = Indicator
     }
 }
 

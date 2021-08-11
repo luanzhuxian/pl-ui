@@ -1,6 +1,6 @@
 <template>
     <div
-        :class="$style.tabContainer"
+        class="pl-tab-container"
         @touchstart="startDrag"
         @mousedown="startDrag"
         @touchmove="onDrag"
@@ -10,7 +10,7 @@
     >
         <div
             ref="wrapper"
-            :class="$style.tabContainerWrapper"
+            class="pl-tab-container-wrapper"
         >
             <slot />
         </div>
@@ -178,7 +178,7 @@ export default {
 </script>
 
 <style lang="scss">
-    .tab-container {
+    .pl-tab-container {
         position: relative;
         overflow: hidden;
 

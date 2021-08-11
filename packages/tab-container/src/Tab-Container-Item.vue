@@ -1,7 +1,7 @@
 <template>
     <div
         v-show="$parent.swiping || id === $parent.currentTab"
-        :class="$style.tabContainerItem"
+        class="pl-tab-container-item"
     >
         <slot />
     </div>
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss">
-  .tab-container-item {
+  .pl-tab-container-item {
       flex-shrink: 0;
       width: 100%;
   }

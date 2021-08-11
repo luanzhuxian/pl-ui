@@ -1,15 +1,13 @@
 <template>
-    <div ref="loadMore" :class="$style.loadMore">
+    <div ref="loadMore" class="load-more">
         <div
             ref="pullLoading"
-            :class="{ [$style.pullLoading]: true }"
+            class="pull-loading"
             :style="{ '--top': `${top / 7.5}vw`, '--rotate': `${rotate}deg`}"
         >
             <svg
-                :class="{
-                    [$style.pullLoadingIcon]: true,
-                    [$style.rotate]: pending
-                }"
+                class="pull-loading-icon"
+                :class="{ rotate: pending }"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 32 32"
                 width="32"
@@ -25,7 +23,7 @@
         </div>
         <div
             ref="container"
-            :class="$style.loadMoreContainer"
+            class="load-more-container"
         >
             <slot
                 :list="list"
@@ -34,10 +32,8 @@
             />
             <svg
                 v-if="bottomLoading"
-                :class="{
-                    [$style.bottomLoadingIcon]: true,
-                    [$style.btoRotate]: pending
-                }"
+                class="bottom-loading-icon"
+                :class="{ btoRotate: pending }"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 32 32"
                 style="display: block;"
@@ -53,13 +49,13 @@
             </svg>
             <p
                 v-if="!isNotShowNoMoreTip && allLoaded && list.length > 0"
-                :class="$style.noMore"
+                class="no-more"
             >
                 没有更多了~
             </p>
             <div
                 v-if="list.length === 0 && !pending"
-                :class="$style.noContent"
+                class="no-content"
             >
                 <PlSvg
                     v-if="!noIcon && !$slots.icon"
@@ -69,7 +65,7 @@
                 />
                 <slot v-else name="icon" />
                 <p
-                    :class="$style.noContentTip"
+                    class="no-content-tip"
                     v-text="noContentTip"
                 />
             </div>
@@ -79,7 +75,6 @@
 
 <script>
 // 使用前必须保证滚动容器是window
-
 import { throttle } from '../../../src/assets/js/util'
 
 export default {
@@ -397,12 +392,15 @@ export default {
 }
 </script>
 
-<style module lang="scss">
-.loadMore {
+<style lang="scss">
+.load-more {
     position: relative;
     overflow: hidden;
+    &-container {
+        min-height: 200px;
+    }
 }
-.pullLoading {
+.pull-loading {
     position: absolute;
     left: 50%;
     top: 0;
@@ -416,7 +414,7 @@ export default {
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(0, 0, 0, .1);
     z-index: 9;
-    .pullLoadingIcon {
+    &-icon {
         width: 50px;
         height: 50px;
         &.rotate {
@@ -424,33 +422,30 @@ export default {
         }
     }
 }
-.loadMoreContainer {
-    min-height: 200px;
-    .bottomLoadingIcon {
-        margin: 30px auto 30px;
-        width: 50px;
-        height: 50px;
-        &.btoRotate {
-            animation: rotate .8s linear infinite;
-        }
+.bottom-loading-icon {
+    margin: 30px auto 30px;
+    width: 50px;
+    height: 50px;
+    &.bto-rotate {
+        animation: rotate .8s linear infinite;
     }
 }
-.noMore {
+.no-more {
     line-height: 90px;
     font-size: 28px;
     color: #999;
     text-align: center;
 }
-.noContent {
+.no-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 200px;
-}
-.noContentTip {
-    margin-top: 20px;
-    font-size: 32px;
-    color: #999;
+    &-tip {
+        margin-top: 20px;
+        font-size: 32px;
+        color: #999;
+    }
 }
 @keyframes rotate {
     from {
@@ -460,5 +455,4 @@ export default {
         transform: rotate(360deg);
     }
 }
-
 </style>
