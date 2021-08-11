@@ -1,4 +1,4 @@
-import './assets/scss/config.scss'
+import './assets/scss/var.scss'
 
 import Button from '../packages/button'
 import Checkbox from '../packages/checkbox'
