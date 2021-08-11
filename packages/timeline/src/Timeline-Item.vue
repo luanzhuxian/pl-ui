@@ -49,7 +49,7 @@ export default {
           top: 10px;
           width: 14px;
           height: 14px;
-          background: url("../../../src/assets/image/circle-active.png") no-repeat center center;
+        //   background: url("../../../src/assets/image/circle-active.png") no-repeat center center;
           background-size: 100%;
         }
       }
@@ -91,7 +91,7 @@ export default {
       top: 13px;
       width: 10px;
       height: 10px;
-      background: url("../../../src/assets/image/circle.png") no-repeat center center;
+    //   background: url("../../../src/assets/image/circle.png") no-repeat center center;
       background-size: 100%;
       z-index: 2;
     }
